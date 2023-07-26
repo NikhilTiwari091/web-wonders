@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Technologies Website</title>
+  <link rel="stylesheet" href="./index_style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="dark_theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-dU9Lm+oPZzD8kdPoy6+4rnvD9wvIKUfjllK85PI5wk0CtZfXbP2ui2zKHu6F+IpJQ1KzAFNFICsv3fIWsJbkQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <button id="theme-toggle-button" onclick="toggleDarkMode()">Toggle DarkMode</button>
+    <div class="topbar">
+      <div class="logo">
+        <img src="logo.png" alt="Logo">
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button id="search-button">Search</button>
+      </div>
+      <div class="user-buttons">
+        <button class="login-button" onclick="openModal()">Login</button>
+        <button class="signup-button" onclick="openSignupModal()">Signup</button>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#" onclick="navigateTo('index')">Home</a></li>
+        <li>
+          <a href="#" onclick="navigateTo('ai')">AI</a>
+          <ul class="dropdown">
+            <li><a href="#" onclick="navigateTo('ai')">Introduction</a></li>
+            <li><a href="#" onclick="navigateTo('ai')">Applications</a></li>
+            <li><a href="#" onclick="navigateTo('ai')">Ethical Considerations</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" onclick="navigateTo('ml')">ML</a>
+          <ul class="dropdown">
+            <li><a href="#" onclick="navigateTo('ml')">Algorithms</a></li>
+            <li><a href="#" onclick="navigateTo('ml')">Models</a></li>
+            <li><a href="#" onclick="navigateTo('ml')">Applications</a></li>
+          </ul>
+        </li>
+        <li><a href="iot.html" onclick="navigateTo('iot')">IoT</a></li>
+        <li>
+          <a href="#" onclick="navigateTo('cybersecurity')">Cybersecurity</a>
+          <ul class="dropdown">
+            <li><a href="#" onclick="navigateTo('cybersecurity')">Basics</a></li>
+            <li><a href="#" onclick="navigateTo('cybersecurity')">Threats</a></li>
+            <li><a href="#" onclick="navigateTo('cybersecurity')">Defense</a></li>
+          </ul>
+        </li>
+        <li><a href="#" onclick="navigateTo('arvr')">AR/VR</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <img src="ai1.avif" alt="Slide 1">
+      </div>
+      <div class="carousel-slide">
+        <img src="iot1.avif" alt="Slide 2">
+      </div>
+      <div class="carousel-slide">
+        <img src="cb1.avif" alt="Slide 3">
+      </div>
+      <div class="carousel-slide">
+        <img src="ai2.avif" alt="Slide 4">
+      </div>
+      <div class="carousel-slide">
+        <img src="arvr1.avif " alt="Slide 5">
+      </div>
+      <div class="carousel-slide">
+        <img src="iot2.avif" alt="Slide 6">
+      </div>
+      <!-- Add more slides as needed -->
+    </div>
+
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>Login</h2>
+        <form>
+          <label for="username">Username:</label>
+          <input type="text" id="username" required>
+          <label for="password">Password:</label>
+          <input type="password" id="password" required>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeSignupModal()">&times;</span>
+        <h2>Sign Up</h2>
+        <form>
+          <label for="username">Username:</label>
+          <input type="text" id="username" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" required>
+          <label for="password">Password:</label>
+          <input type="password" id="password" required>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="loading-overlay" class="overlay">
+      <div class="loader"></div>
+    </div>
+
+    <!-- Add navigation arrows -->
+    <div class="carousel-arrows">
+      <img src="larrow.png" alt="Left Arrow" class="carousel-prev">
+      <img src="rarrow.png" alt="Right Arrow" class="carousel-next">
+    </div>
+
+
+    <section class="technology-buttons">
+      <div class="technology-button ai-button" onmouseover="onHover('ai')"
+        onmouseout="onMouseOut()" onclick="navigateTo('ai')">
+        <h2>AI</h2>
+      </div>
+      <div class="technology-button ml-button"  onmouseover="onHover('ml')"
+        onmouseout="onMouseOut()" onclick="navigateTo('ml')">
+        <h2>ML</h2>
+      </div>
+      <div class="technology-button vr-button"  onmouseover="onHover('arvr')"
+        onmouseout="onMouseOut()" onclick="navigateTo('arvr')">
+        <h2>AR/VR</h2>
+      </div>
+      <div class="technology-button cybersecurity-button"  onmouseover="onHover('cybersecurity')"
+        onmouseout="onMouseOut()" onclick="navigateTo('cybersecurity')">
+        <h2>Cybersecurity</h2>
+      </div>
+      <div class="technology-button iot-button"  onmouseover="onHover('iot')"
+        onmouseout="onMouseOut()" onclick="navigateTo('iot')">
+        <h2>IOT</h2>
+      </div>
+    </section>
+
+    <section id="home" class="section">
+      <h1>Welcome to the World of New Technologies</h1>
+    </section>
+
+    <h2>Artificial Intelligence (AI)</h2>
+    <section id="ai" class="section card">
+      <img src="ai1.avif" alt="">
+      <p>Artificial Intelligence (AI) refers to machines that can perform tasks requiring human intelligence, like
+        learning, problem-solving, and decision-making. It involves technologies such as machine learning and natural
+        language processing, enabling systems to analyze data, adapt, and improve over time. AI finds applications in
+        various industries, but ethical considerations like privacy and bias must be addressed. Responsible development
+        and collaboration are crucial for maximizing AI's benefits and minimizing its risks.
+      </p>
+    </section>
+
+    <h2>Machine Learning (ML)</h2>
+    <section id="ml" class="section card">
+      <img src="ml1.avif" alt="">
+      <p>Machine Learning (ML) is a subset of artificial intelligence that focuses on developing algorithms and
+        statistical models that enable computers to learn from data without being explicitly programmed. ML systems
+        utilize data to identify patterns, make predictions, and improve their performance over time through experience.
+        There are various types of ML techniques, including supervised learning, unsupervised learning, and
+        reinforcement learning. ML has revolutionized many industries, from healthcare and finance to marketing and
+        autonomous vehicles, by automating tasks, optimizing processes, and uncovering valuable insights from vast
+        amounts of data. As technology continues to advance, ML's applications and impact on society are only expected
+        to grow.</p>
+    </section>
+
+    <h2>Internet of Things (IoT)</h2>
+    <section id="iot" class="section card">
+      <img src="iot1.avif" alt="">
+      <p>The Internet of Things (IoT) is a network of interconnected physical devices, objects, and sensors that can
+        collect and exchange data over the internet. By enabling communication and automation between devices, IoT
+        improves efficiency, convenience, and data-driven decision-making across various industries and daily life.
+        While promising numerous benefits, the widespread adoption of IoT also necessitates addressing security,
+        privacy, and data management challenges. As IoT technology continues to evolve, its impact on society is
+        expected to grow significantly.</p>
+    </section>
+
+    <h2>Cybersecurity</h2>
+    <section id="cybersecurity" class="section card">
+      <img src="cb1.avif" alt="">
+      <p>Cybersecurity is the protection of computer systems, networks, and data from cyber-attacks. It involves using
+        security measures like encryption and access controls to prevent unauthorized access and data breaches. As cyber
+        threats continue to evolve, staying vigilant and employing best practices are essential to safeguarding against
+        potential risks.</p>
+    </section>
+
+    <h2>Augmented Reality (AR) / Virtual Reality (VR)</h2>
+    <section id="arvr" class="section card">
+      <img src="arvr1.avif" alt="">
+      <p>AR and VR are immersive technologies that blend virtual and real-world environments. AR overlays digital
+        information onto the real world, while VR creates fully simulated environments. They have transformative
+        potential in various industries like gaming, education, training, and entertainment, and are expected to play an
+        increasingly significant role in the future.</p>
+    </section>
+    <div class="theme-toggle" onclick="toggleTheme()">
+      <i class="fas fa-moon"></i> <!-- Using Font Awesome for moon icon -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 New Technologies Website</p>
+  </footer>
+
+  <script src="./script.js"></script>
+  
+</body>
+
+</html>
